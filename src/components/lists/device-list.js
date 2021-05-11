@@ -4,8 +4,8 @@ import Device from '../singles/device';
 const DeviceList = props => {    
     return (
         <div className="devices">
-            { props.devices.map( device => <Device 
-                key={ device.id }
+            { props.devices.map( (device, index) => <Device 
+                key={ index }
                 system_name={ device.system_name } 
                 type={ device.type }
                 hdd_capacity={ device.hdd_capacity } /> 
@@ -14,8 +14,8 @@ const DeviceList = props => {
     );
 };
 
-const mapStateToDevices = state => ({
+const mapStateToProps = state => ({
     devices: state.devices
 });
 
-export default connect(mapStateToDevices)(DeviceList);
+export default connect(mapStateToProps)(DeviceList);
