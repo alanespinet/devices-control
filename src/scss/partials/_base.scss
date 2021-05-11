@@ -1,8 +1,51 @@
-$background: #f2f2f2;
+$background_color: #fefefe;
+$foreground_color: #121212;
+$middle_title_color: #6f6f6f;
+$border_color: #d2d2d2;
+$action_color: #008080;
+$close_color: #ff6347;
+
+$space_small: 20px;
+$space_medium_small: 40px;
+$space_medium_large: 60px;
+$space_large: 80px;
+$space_extra_large: 160px;
+
+
 
 body {
     padding: 0;
     margin: 0;
 
-    background-color: $background;
+    background-color: $background_color;
+    padding-bottom: $space_extra_large;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+.btn {
+    display: inline-block;
+    max-width: 100px;
+    background-color: $action_color;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: $background_color;
+    text-decoration: none !important;
+    text-align: center;
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: darken($action_color, 5%);
+    }
 }

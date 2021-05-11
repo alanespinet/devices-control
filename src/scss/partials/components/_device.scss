@@ -1,0 +1,26 @@
+.device-single {
+    border-bottom: 1px solid $border_color;
+    padding-bottom: $space_small;
+    position: relative;
+
+    h2 {
+        color: $middle_title_color;
+    }
+
+    &__actions {
+        text-align: right;
+
+        .plain-button { 
+            -webkit-appearance: none;
+            appearance: none;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            margin-left: $space_small;
+            font-weight: 700;
+            background-color: $background_color;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+    }
+}

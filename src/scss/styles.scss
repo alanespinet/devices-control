@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @import './partials/base';
+@import './partials/typography';
+
+@import './partials/components/device';
+@import './partials/components/add-device-link';
+@import './partials/components/device-action-form';
+@import './partials/components/filters';

@@ -1,6 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import devicesReducer from './reducers/devices';
 
-const store = createStore( devicesReducer, applyMiddleware(thunk) );
+import devicesReducer from './reducers/devices';
+import filtersReducer from './reducers/filters';
+
+const store = createStore( combineReducers({
+    devicesReducer,
+    filtersReducer
+ }), applyMiddleware(thunk) );
 export default store;

@@ -11,17 +11,11 @@ const devicesReducer = ( state = INITIAL_STATE, action ) => {
                 devices: action.payload
             }
         
-        case "ADD_DEVICE":
+        case "SELECT_DEVICE":
             return {
                 ...state,
-                devices: [...state.devices, action.payload]
-            };
-
-        case "DELETE_DEVICE":
-            return {
-                ...state,
-                devices: state.devices.filter( device => device.id !== action.payload )
-            };
+                selectedDevice: action.payload
+            }
 
         default:
             return state;

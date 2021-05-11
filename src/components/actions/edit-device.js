@@ -1,17 +1,12 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { asyncAddDevice } from '../../redux/actions/devices';
+import { asyncEditDevice } from '../../redux/actions/devices';
 
-class AddDevice extends Component {
+class EditDevice extends Component {
     
     constructor(props){
         super(props);
-
-        this.state = {  
-            system_name: '',
-            type: '',
-            hdd_capacity: ''
-        };
+        this.state = this.props.selectedDevice;
     }
 
     onNameChange = e => {
@@ -41,7 +36,14 @@ class AddDevice extends Component {
             return false;
         }
         
-        this.props.addDevice( this.state );
+        // we don't want to pass the id as part of the object
+        const edit_device = {
+            system_name: this.state.system_name,
+            type: this.state.type,
+            hdd_capacity: this.state.hdd_capacity
+        };
+
+        this.props.editDevice( this.state.id, edit_device );
         this.returnHome();
     }
 
@@ -50,7 +52,7 @@ class AddDevice extends Component {
     render(){
         return (
             <div className="add-device">
-                <h1>Add Device</h1>
+                <h1>Edit Device</h1>
     
                 <form className="device-action-form">
                     <div className="device-action-form__control">
@@ -88,7 +90,11 @@ class AddDevice extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addDevice: device => dispatch( asyncAddDevice(device) )
+    editDevice: (id, device) => dispatch( asyncEditDevice(id, device) )
 });
 
-export default connect(null, mapDispatchToProps)(AddDevice);
+const mapStateToProps = state => ({
+    selectedDevice: state.devicesReducer.selectedDevice
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditDevice);
