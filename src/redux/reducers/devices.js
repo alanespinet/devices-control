@@ -1,19 +1,22 @@
-const INITIAL_STATE = [{
-    id: 1,
-    system_name: 'JOHN MAC',
-    type: 'MAC',
-    hdd_capacity: 2048
-}, {
-    id: 2,
-    system_name: 'MARY WINDOWS PC',
-    type: 'WINDOWS',
-    hdd_capacity: 1024
-}, {
-    id: 3,
-    system_name: 'MARINA PERSONAL',
-    type: 'MAC',
-    hdd_capacity: 2048
-}];
+const INITIAL_STATE = {
+    devices: [{
+        id: 1,
+        system_name: 'JOHN MAC',
+        type: 'MAC',
+        hdd_capacity: 2048
+    }, {
+        id: 2,
+        system_name: 'MARY WINDOWS PC',
+        type: 'WINDOWS',
+        hdd_capacity: 1024
+    }, {
+        id: 3,
+        system_name: 'MARINA PERSONAL',
+        type: 'MAC',
+        hdd_capacity: 2048
+    }],
+    selectedDevice: {  }
+};
 
 const devicesReducer = ( state = INITIAL_STATE, action ) => {
     switch( action.type ){

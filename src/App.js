@@ -1,7 +1,9 @@
+import DeviceList from "./components/lists/device-list";
+
 function App() {
   return (
     <div className="App">
-      <h1>it works!</h1>
+      <DeviceList />
     </div>
   );
 }
