@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { asyncAddDevice } from '../../redux/actions/devices';
 
 class AddDevice extends Component {
     
@@ -82,7 +83,7 @@ class AddDevice extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addDevice: device => dispatch({ type: 'ADD_DEVICE', payload: device })
+    addDevice: device => dispatch( asyncAddDevice(device) )
 });
 
 export default connect(null, mapDispatchToProps)(AddDevice);
