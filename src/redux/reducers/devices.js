@@ -20,6 +20,17 @@ const INITIAL_STATE = {
 
 const devicesReducer = ( state = INITIAL_STATE, action ) => {
     switch( action.type ){
+        case "ADD_DEVICE":
+            return {
+                ...state,
+                devices: [...state.devices, action.payload]
+            };
+
+        case "DELETE_DEVICE":
+            return {
+                ...state,
+                devices: state.devices.filter( device => device.id !== action.payload )
+            };
 
         default:
             return state;
