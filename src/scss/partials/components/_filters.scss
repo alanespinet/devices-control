@@ -7,7 +7,7 @@
         background-color: $border_color;
         padding: 15px;
 
-        @media (max-width: 767px){
+        @media (max-width: $small_device_max){
             flex-wrap: wrap;
         }
         
@@ -23,12 +23,12 @@
                 border-radius: 0;
                 border: none;
                 margin-left: 5px;
-                min-width: 180px;
+                min-width: 210px;
 
                 background: url('../icons/arrow.svg') 96%/18px no-repeat #fff;
             }
 
-            @media (max-width: 767px){
+            @media (max-width: $small_device_max){
                 flex-basis: 100%;
                 margin-right: 0;
                 margin-bottom: $space_small;
@@ -44,7 +44,7 @@
                 }
             }
 
-            @media (max-width: 575px){
+            @media (max-width: $xtra_small_device_max){
                 flex-wrap: wrap;
                 
                 label {

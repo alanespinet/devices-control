@@ -44,12 +44,21 @@ class Filters extends Component {
                         </select>
                     </div>
 
-                    <button className="filters__clear" onClick={this.onResetAll}>Clear</button>
+                    {   ((this.props.filterBy !== null && this.props.filterBy.trim().length > 0) ||
+                        (this.props.sortBy !== null && this.props.sortBy.trim().length > 0)) && 
+                        
+                            <button className="filters__clear" onClick={this.onResetAll}>Clear</button>
+                    }
                 </div>
             </div>
         );
     }
 }
+
+const mapStateToProps = state => ({
+    filterBy: state.filtersReducer.filterBy,
+    sortBy: state.filtersReducer.sortBy
+});
 
 const mapDispatchToProps = dispatch => ({
     setFilter: fvalue => dispatch({
@@ -63,4 +72,4 @@ const mapDispatchToProps = dispatch => ({
     resetAll: () => dispatch({ type: 'RESET_ALL' })
 });
 
-export default connect(null, mapDispatchToProps)(Filters);
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);
